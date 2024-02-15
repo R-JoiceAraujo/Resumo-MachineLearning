@@ -20,7 +20,7 @@ Projeto designado para a atividade: "Trabalhando com Machine Learning na Prátic
 * **Insights de aplicativo** : observe o novo recurso padrão de insights de aplicativo que será criado para seu espaço de trabalho .
 * **Registro de contêiner** : Nenhum ( um será criado automaticamente na primeira vez que você implantar um modelo em um contêiner ).
 
-3️⃣ Selecione **Revisar + criar** e selecione **Criar**. Aguarde a criação do seu espaço de trabalho (pode demorar 15min ou mais) e, em seguida, vá para o recurso **implantado**.
+3️⃣ Selecione **Revisar + criar** e selecione **Criar**. Aguarde a criação do seu espaço de trabalho (podde levar alguns minutos) e, em seguida, vá para o recurso **implantado**.
 
 4️⃣Selecione **Launch Studio** (ou abra uma nova guia do navegador e navegue até https://ml.azure.com e entre no Azure Machine Learning Studio usando sua conta da Microsoft). Feche todas as mensagens exibidas.
 
