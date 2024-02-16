@@ -20,7 +20,7 @@ Projeto designado para a atividade: "Trabalhando com Machine Learning na Prátic
 * **Insights de aplicativo** : observe o novo recurso padrão de insights de aplicativo que será criado para seu espaço de trabalho .
 * **Registro de contêiner** : Nenhum ( um será criado automaticamente na primeira vez que você implantar um modelo em um contêiner ).
 
-3️⃣ Selecione **Revisar + criar** e selecione **Criar**. Aguarde a criação do seu espaço de trabalho (podde levar alguns minutos) e, em seguida, vá para o recurso **implantado**.
+3️⃣ Selecione **Revisar + criar** e selecione **Criar**. Aguarde a criação do seu espaço de trabalho (pode levar alguns minutos) e, em seguida, selecione **ir para recurso** implantado.
 
 4️⃣Selecione **Launch Studio** (ou abra uma nova guia do navegador e navegue até https://ml.azure.com e entre no Azure Machine Learning Studio usando sua conta da Microsoft). Feche todas as mensagens exibidas.
 
@@ -30,7 +30,7 @@ Projeto designado para a atividade: "Trabalhando com Machine Learning na Prátic
 
 
 ## Use aprendizado de máquina automatizado para treinar um modelo💻
-No Azure Machine Learning Studio , veja a página Automated ML, crie um novo trabalho de **ML automatizado** com as seguintes configurações:
+No Azure Machine Learning Studio , veja a página Automated ML, crie um **novo trabalho de ML automatizado** com as seguintes configurações:
 #### 🔹Configurações básicas :
 
 
@@ -42,30 +42,43 @@ No Azure Machine Learning Studio , veja a página Automated ML, crie um novo tra
 
 ▪ Marcadores : nenhum
 
+|avançar|
+|------|
+
 ### Tipo de tarefa e dados :
 
 ▪ Selecione o tipo de tarefa : Regressão
 
-▪ Selecionar conjunto de dados : crie um novo conjunto de dados com as seguintes configurações:
+▪ Selecionar os dados : crie um novo conjunto de dados com as seguintes configurações:
+⬇⬇⬇⬇⬇⬇⬇⬇⬇
 
 ####  🔹Tipo de dados :
 
-▪ Nome : aluguel de bicicletas
+▪ Nome : alugueldebicicletas
 
-▪ Descrição : dados históricos de aluguel de bicicletas
+▪ Descrição : Dados históricos de aluguel de bicicletas.
 
 ▪ Tipo : Tabular
+
+|avançar|
+|------|
+
 #### 🔹Fonte de dados :
 ▪ Selecione **Dos arquivos da web**
+
+|avançar|
+|------|
 
 #### 🔹URL da Web :
 
 ▪ URL da Web :https://aka.ms/bike-rentals
 
-▪ Ignorar validação de dados : não selecionar
+▪ Ignorar validação de dados: não selecionar❌
 
+|avançar|
+|------|
 
-#### 🔹Configurações :
+#### 🔹Configurações:
 
 ▪ Formato de arquivo : Delimitado
 
@@ -73,84 +86,105 @@ No Azure Machine Learning Studio , veja a página Automated ML, crie um novo tra
 
 ▪ Codificação : UTF-8
 
-▪ Cabeçalhos de coluna : apenas o primeiro arquivo possui cabeçalhos
+▪ Cabeçalhos de coluna : Somente o primeiro arquivo possui cabeçalhos
 
-▪ Pular linhas : Nenhum
+▪ Ignorar linhas : Nenhuma
 
 ▪ O conjunto de dados contém dados multilinhas : não selecione
 
+|avançar|
+|------|
+
 #### 🔹Esquema :
-▪ Incluir todas as colunas exceto Caminho
+▪ Incluir todas as colunas exceto Caminho(path)
 
 ▪ Revise os tipos detectados automaticamente
 
-Selecione **Criar** . Após a criação do conjunto de dados, selecione o conjunto de dados **de aluguel de bicicletas** para continuar a enviar o trabalho de ML automatizado.
+|avançar|
+|------|
+
+* Selecione **Criar** . Após a criação do conjunto de dados, selecione o conjunto de dados **de aluguel de bicicletas** para continuar a enviar o trabalho de ML automatizado.
 
  ### Configurações de tarefa :
 ▪ Tipo de tarefa : Regressão
 
-▪ Conjunto de dados : aluguel de bicicletas
+▪ Conjunto de dados : ✅selecione alugueldebicicletas
 
-▪ Coluna de destino : Aluguéis (inteiro)
+|avançar|
+|------|
 
-#### 🔹Clique em configurações adicionais :
+▪ Coluna de destino : Rentals (Interg)
+
+|avançar|
+|------|
+
+#### 🔹⚙Exibir definições de configuração adicionais :
 ▪ Métrica primária : Normalized root mean squared error
 
 ▪ Desmarque 🔲 explicar o melhor modelo
 
 ▪ Desmarque 🔲 Usar todos os modelos suportados. Você restringirá o trabalho para tentar apenas alguns algoritmos específicos para realizar testes.
 
-▪ Modelos permitidos : Selecione apenas RandomForest e LightGBM — normalmente você gostaria de tentar o máximo possível, mas cada modelo adicionado aumenta o tempo necessário para executar o trabalho.
+▪ Modelos permitidos : Selecione apenas **RandomForest e LightGBM** — normalmente você gostaria de tentar o máximo possível, mas cada modelo adicionado aumenta o tempo necessário para executar o trabalho.
 
-#### 🔹Limites : expanda esta seção
-▪ Máximo de testes : 3
+|Salvar|
+|------|
 
-▪ Máximo de testes simultâneos : 3
+#### 🔹Limites : expanda esta seção (>)
+▪ Máximo de avaliações: 3
+
+▪ Máximo de avaliações simultâneos : 3
 
 ▪ Máximo de nós : 3
 
-▪ Limite de pontuação da métrica : 0,085 ( para que, se um modelo atingir uma pontuação da métrica de erro quadrático médio normalizado de 0,085 ou menos, o trabalho termina. )
+▪ Limite de pontuação da métrica : **0,085** ( para que, se um modelo atingir uma pontuação da métrica de erro quadrático médio normalizado de 0,085 ou menos, o trabalho termina. )
 
-▪ Tempo limite : 15
+▪ Tempo limite do experimento (minutos): 15
 
 ▪ Tempo limite de iteração : 15
 
 ☑️Habilitar encerramento antecipado
 
-#### 🔹Validação e teste :
-▪ Tipo de validação : divisão de validação de trem
+#### 🔹Validar e testar:
+▪ Tipo de validação : divisão de validação de treinamento
 
 ▪ Porcentagem de dados de validação : 10
 
-▪ Conjunto de dados de teste : Nenhum
+▪ Dados de teste : Nenhum
 
-### Calcular :
+|avançar|
+|------|
+
+### Computação :
 
 ▪ Selecione o tipo de computação : sem servidor
 
 ▪ Tipo de máquina virtual : CPU
 
-▪ Camada de máquina virtual : Dedicada
+▪ Tipo de máquina virtual: Dedicada
 
-▪ Tamanho da máquina virtual : Standard_DS3_V2*
+▪ Tamanho da máquina virtual : Standard_DS3_v2 (4 núcleo(s), 14GB de RAM, 28 GB de armazenamento, $0.23/hr)
 
 ▪ Número de instâncias : 1
+
+[Examinar]
+
+|Enviar trabalho de treinamento|
+|------|
 
 * Se a sua assinatura restringir os tamanhos de VM disponíveis para você, escolha qualquer tamanho disponível. Envie o trabalho de treinamento. Ele inicia automaticamente.Espere o trabalho terminar. Em alguns casos pode demorar até 15 minutos ou mais – agora pode ser um **bom momento para descansar**!
 
 ## Avalie o melhor modelo ✔
 
-1️⃣ Na guia Visão geral do trabalho automatizado de aprendizado de máquina, observe o melhor resumo do modelo.
+1️⃣ Na guia Visão geral do trabalho, observe o melhor resumo do modelo.
 
-2️⃣ Selecione o texto em **Nome do algoritmo** do melhor modelo para visualizar seus detalhes.
+2️⃣ Selecione em melhor resumo de modelo o texto **Nome do algoritmo** para visualizar seus detalhes.
 
-3️⃣ Selecione a guia **Métricas** e selecione os **gráficos residuais** e **predito_true** se eles ainda não estiverem selecionados.
-
-* Revise os gráficos que mostram o desempenho do modelo. O gráfico **de resíduos** mostra os resíduos (as diferenças entre os valores previstos e reais) como um histograma. O gráfico **predito_true** compara os valores previstos com os valores verdadeiros.
+3️⃣ Selecione a guia **Métricas** e selecione os **gráficos residuals** e **predicted_true** se eles ainda não estiverem selecionados.
 
 ## Implantar e testar o modelo. 💾
 
-1️⃣ Na guia Modelo selecione Implantar e marque Serviços Web Agora Preencha o campo a seguir com as seguintes configurações :
+1️⃣ Na guia **Modelos** selecione Implantar e marque **Serviços Web** Agora Preencha o campo a seguir com as seguintes configurações :
 
 ▪ Nome : prever-alugueis (Sem acentuação)
 
